@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
 
     static async overdue() {
       try {
-        let todos = await Todo.findAll();
+        let todos = await Todo.findAll({ order: [["id", "ASC"]] });
 
         const now = new Date();
         now.setHours(0, 0, 0, 0);
@@ -59,7 +59,7 @@ module.exports = (sequelize, DataTypes) => {
 
     static async dueToday() {
       try {
-        let todos = await Todo.findAll();
+        let todos = await Todo.findAll({ order: [["id", "ASC"]] });
 
         const now = new Date();
         now.setHours(0, 0, 0, 0);
@@ -78,7 +78,7 @@ module.exports = (sequelize, DataTypes) => {
 
     static async dueLater() {
       try {
-        let todos = await Todo.findAll();
+        let todos = await Todo.findAll({ order: [["id", "ASC"]] });
 
         const now = new Date();
         now.setHours(0, 0, 0, 0);
